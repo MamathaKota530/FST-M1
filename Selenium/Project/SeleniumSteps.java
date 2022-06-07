@@ -165,8 +165,9 @@ public class SeleniumSteps {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].scrollIntoView();", lesson);
         executor.executeScript("arguments[0].click();", lesson);
-        Thread.sleep(5000);
-        //wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='ld-lesson-topic-list']"))));
+        //Thread.sleep(5000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
+        driver.findElement(By.xpath("//h1[text()='Developing Strategy']"));
 
         String title1 = driver.getTitle();
         System.out.println("lesson title is: " + title1);
